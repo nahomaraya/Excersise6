@@ -23,10 +23,10 @@
 
 .fb-form-title-input, .fb-form-desc-input, .fb-question-title-input, .fb-question-desc-input,
 .fb-option-input, .fb-scale-label-input, .fb-answer-preview {
-  width: 100%; border: none; border-bottom: 1px solid #ddd; outline: none;
+  width: 100%; border: none; border-bottom: 1px solid #666; outline: none;
   background: transparent; font-family: inherit; padding: 4px 0;
 }
-.fb-form-title-input { font-size: 22px; font-weight: 600; }
+.fb-form-title-input { font-size: 22px; font-weight: 600; color: #111; }
 .fb-form-desc-input, .fb-question-desc-input { font-size: 14px; color: #666; }
 .fb-question-title-input { font-size: 15px; font-weight: 500; }
 .fb-option-input, .fb-scale-label-input, .fb-answer-preview { font-size: 13px; }
