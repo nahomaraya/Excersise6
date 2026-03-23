@@ -1,0 +1,91 @@
+* { box-sizing: border-box; }
+
+#root { width: 100%; max-width: 100%; margin: 0; text-align: left; }
+
+.fb-app { min-height: 100svh; background: #f5f5f5; display: flex; flex-direction: column; }
+
+.fb-header { background: #fff; border-bottom: 1px solid #ddd; display: flex; align-items: center; padding: 0 24px; height: 56px; }
+.fb-header-brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #333; }
+
+.fb-main { flex: 1; padding: 24px 16px 48px; }
+
+.fb-builder { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+.fb-form-header-card, .fb-question-card, .fb-add-panel {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+.fb-form-header-card { border-top: 4px solid #673ab7; }
+.fb-form-header-bar, .fb-question-accent-bar { display: none; }
+.fb-form-header-body { display: flex; flex-direction: column; gap: 10px; padding: 0; }
+
+.fb-form-title-input, .fb-form-desc-input, .fb-question-title-input, .fb-question-desc-input,
+.fb-option-input, .fb-scale-label-input, .fb-answer-preview {
+  width: 100%; border: none; border-bottom: 1px solid #ddd; outline: none;
+  background: transparent; font-family: inherit; padding: 4px 0;
+}
+.fb-form-title-input { font-size: 22px; font-weight: 600; }
+.fb-form-desc-input, .fb-question-desc-input { font-size: 14px; color: #666; }
+.fb-question-title-input { font-size: 15px; font-weight: 500; }
+.fb-option-input, .fb-scale-label-input, .fb-answer-preview { font-size: 13px; }
+.fb-answer-preview { color: #bbb; cursor: not-allowed; max-width: 300px; margin-top: 12px; }
+.fb-answer-textarea { display: block; max-width: 100%; resize: none; }
+*:focus { border-bottom-color: #673ab7 !important; }
+::placeholder { color: #bbb; }
+
+.fb-empty-state { text-align: center; padding: 40px 24px; color: #999; font-size: 14px; }
+
+.fb-question-card { padding: 20px 24px 14px; border-left: 4px solid #ddd; }
+.fb-question-card.focused { border-left-color: #673ab7; }
+.fb-question-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.fb-question-num { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #999; }
+
+.fb-type-select { font-size: 13px; border: 1px solid #ddd; border-radius: 4px; padding: 4px 8px; font-family: inherit; outline: none; }
+.fb-type-select:focus { border-color: #673ab7; }
+
+.fb-options { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.fb-option-row { display: flex; align-items: center; gap: 10px; }
+.fb-option-marker { flex-shrink: 0; }
+.fb-marker-radio { width: 14px; height: 14px; border: 2px solid #aaa; border-radius: 50%; display: inline-block; }
+.fb-marker-check { width: 14px; height: 14px; border: 2px solid #aaa; border-radius: 2px; display: inline-block; }
+.fb-marker-num { font-size: 13px; color: #888; }
+.fb-option-del, .fb-add-option { background: none; border: none; cursor: pointer; font-family: inherit; }
+.fb-option-del { color: #aaa; font-size: 14px; padding: 2px 4px; }
+.fb-option-del:hover { color: #c00; }
+.fb-add-option { color: #673ab7; font-size: 13px; padding: 4px 0; margin-top: 2px; }
+
+.fb-scale-config { margin-top: 12px; }
+.fb-scale-range-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.fb-scale-range-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #555; }
+.fb-scale-range-item select { font-size: 13px; border: 1px solid #ddd; border-radius: 4px; padding: 3px 6px; font-family: inherit; }
+.fb-scale-label-input { width: 130px; }
+.fb-scale-to { color: #aaa; font-size: 13px; }
+.fb-scale-ticks { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.fb-scale-tick { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; border-radius: 50%; font-size: 13px; color: #673ab7; }
+
+.fb-question-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding-top: 12px; border-top: 1px solid #eee; }
+.fb-q-actions { display: flex; gap: 2px; }
+.fb-icon-btn { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: none; border: none; border-radius: 4px; color: #888; cursor: pointer; font-size: 14px; }
+.fb-icon-btn:hover:not(:disabled) { background: #f0f0f0; color: #333; }
+.fb-icon-btn:disabled { opacity: 0.3; cursor: default; }
+.fb-icon-btn-del:hover:not(:disabled) { color: #c00; }
+.fb-required-label { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #555; cursor: pointer; user-select: none; }
+.fb-toggle { position: relative; display: inline-flex; }
+.fb-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.fb-toggle-track { display: block; width: 36px; height: 20px; background: #ccc; border-radius: 10px; position: relative; cursor: pointer; }
+.fb-toggle input:checked ~ .fb-toggle-track { background: #673ab7; }
+.fb-toggle-thumb { position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; background: white; border-radius: 50%; }
+.fb-toggle input:checked ~ .fb-toggle-track .fb-toggle-thumb { left: 19px; }
+
+.fb-add-label { font-size: 12px; font-weight: 600; text-transform: uppercase; color: #888; margin: 0 0 12px; }
+.fb-add-types { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.fb-add-type-btn { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border: 1px solid #ddd; border-radius: 6px; color: #333; font-size: 13px; cursor: pointer; font-family: inherit; }
+.fb-add-type-btn:hover { background: #f0ebff; border-color: #673ab7; color: #673ab7; }
+
+@media (max-width: 600px) {
+  .fb-main { padding: 12px 8px 40px; }
+  .fb-form-header-body, .fb-question-card, .fb-add-panel { padding-left: 16px; padding-right: 16px; }
+  .fb-add-types { grid-template-columns: repeat(2, 1fr); }
+}
