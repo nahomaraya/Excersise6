@@ -2,11 +2,9 @@ import QuestionCard from './QuestionCard'
 
 const QUESTION_TYPES = [
   { value: 'short', label: 'Short answer', icon: '—' },
-  { value: 'paragraph', label: 'Paragraph', icon: '≡' },
   { value: 'multiple_choice', label: 'Multiple choice', icon: '◉' },
   { value: 'checkboxes', label: 'Checkboxes', icon: '☑' },
   { value: 'dropdown', label: 'Dropdown', icon: '▾' },
-  { value: 'linear_scale', label: 'Linear scale', icon: '↔' },
   { value: 'date', label: 'Date', icon: '📅' },
   { value: 'time', label: 'Time', icon: '🕐' },
 ]

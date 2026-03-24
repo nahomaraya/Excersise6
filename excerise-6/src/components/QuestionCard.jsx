@@ -2,11 +2,9 @@ import { useState } from 'react'
 
 const TYPE_LABELS = {
   short: 'Short answer',
-  paragraph: 'Paragraph',
   multiple_choice: 'Multiple choice',
   checkboxes: 'Checkboxes',
   dropdown: 'Dropdown',
-  linear_scale: 'Linear scale',
   date: 'Date',
   time: 'Time',
 }
