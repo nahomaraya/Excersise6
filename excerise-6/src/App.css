@@ -6,6 +6,10 @@
 
 .fb-header { background: #fff; border-bottom: 1px solid #ddd; display: flex; align-items: center; padding: 0 24px; height: 56px; }
 .fb-header-brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #333; }
+.fb-header-nav { display: flex; gap: 4px; margin-left: auto; }
+.fb-nav-tab { padding: 6px 16px; border-radius: 20px; font-size: 14px; color: #666; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.fb-nav-tab:hover { background: #f0ebff; color: #673ab7; }
+.fb-nav-tab.active { background: #f0ebff; color: #673ab7; font-weight: 600; }
 
 .fb-main { flex: 1; padding: 24px 16px 48px; }
 
@@ -28,7 +32,7 @@
 }
 .fb-form-title-input { font-size: 22px; font-weight: 600; color: #111; }
 .fb-form-desc-input, .fb-question-desc-input { font-size: 14px; color: #666; }
-.fb-question-title-input { font-size: 15px; font-weight: 500; }
+.fb-question-title-input { font-size: 15px; font-weight: 500; color: #000; }
 .fb-option-input, .fb-scale-label-input, .fb-answer-preview { font-size: 13px; }
 .fb-answer-preview { color: #bbb; cursor: not-allowed; max-width: 300px; margin-top: 12px; }
 .fb-answer-textarea { display: block; max-width: 100%; resize: none; }
@@ -84,8 +88,68 @@
 .fb-add-type-btn { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border: 1px solid #ddd; border-radius: 6px; color: #333; font-size: 13px; cursor: pointer; font-family: inherit; }
 .fb-add-type-btn:hover { background: #f0ebff; border-color: #673ab7; color: #673ab7; }
 
+/* ── Preview page ─────────────────────────────────────────── */
+.fb-preview-wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+.fb-preview-header-card { background: #fff; border: 1px solid #ddd; border-radius: 6px; border-top: 4px solid #673ab7; overflow: hidden; }
+.fb-preview-top-bar { display: none; }
+.fb-preview-header-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; }
+.fb-preview-form-title { font-size: 22px; font-weight: 600; color: #111; margin: 0; }
+.fb-preview-form-desc { font-size: 14px; color: #555; margin: 0; }
+
+.fb-preview-empty { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 40px 24px; text-align: center; color: #999; font-size: 14px; }
+
+/* Question cards in preview */
+.fb-pq { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 20px 24px; }
+.fb-pq.has-error { border-color: #c62828; }
+.fb-pq-label { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 12px; }
+.fb-required-star { color: #c62828; }
+.fb-pq-desc { font-size: 13px; color: #666; margin: -6px 0 10px; }
+.fb-pq-error { font-size: 12px; color: #c62828; margin: 8px 0 0; display: flex; align-items: center; gap: 4px; }
+
+/* Text inputs */
+.fb-pq-input { width: 100%; border: none; border-bottom: 1px solid #aaa; outline: none; background: transparent; font-family: inherit; font-size: 14px; padding: 6px 0; color: #111; }
+.fb-pq-input:focus { border-bottom-color: #673ab7; }
+.fb-pq-textarea { resize: vertical; }
+.fb-pq-select { appearance: none; cursor: pointer; padding-right: 24px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 4px center; }
+.fb-pq-date { max-width: 220px; }
+
+/* Radio group */
+.fb-pq-radio-group, .fb-pq-check-group { display: flex; flex-direction: column; gap: 10px; }
+.fb-pq-radio-label, .fb-pq-check-label { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333; cursor: pointer; }
+.fb-pq-radio-label input, .fb-pq-check-label input { position: absolute; opacity: 0; width: 0; height: 0; }
+.fb-custom-radio { width: 18px; height: 18px; border: 2px solid #aaa; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: border-color 0.15s; }
+.fb-pq-radio-label input:checked ~ .fb-custom-radio { border-color: #673ab7; background: radial-gradient(circle, #673ab7 40%, transparent 42%); }
+.fb-custom-check { width: 18px; height: 18px; border: 2px solid #aaa; border-radius: 3px; flex-shrink: 0; transition: border-color 0.15s, background 0.15s; }
+.fb-pq-check-label input:checked ~ .fb-custom-check { border-color: #673ab7; background: #673ab7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat; }
+
+/* Linear scale */
+.fb-pq-scale { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.fb-scale-end { font-size: 13px; color: #666; }
+.fb-scale-options { display: flex; gap: 6px; flex-wrap: wrap; }
+.fb-scale-opt { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
+.fb-scale-opt input { position: absolute; opacity: 0; width: 0; height: 0; }
+.fb-scale-num { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; border-radius: 50%; font-size: 13px; color: #555; transition: border-color 0.15s, background 0.15s, color 0.15s; }
+.fb-scale-opt input:checked ~ .fb-scale-num { border-color: #673ab7; background: #673ab7; color: #fff; }
+.fb-scale-opt:hover .fb-scale-num { border-color: #673ab7; color: #673ab7; }
+
+/* Submit row */
+.fb-submit-row { display: flex; align-items: center; gap: 16px; padding: 4px 0 8px; }
+.fb-submit-btn { background: #673ab7; color: #fff; border: none; border-radius: 4px; padding: 10px 28px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+.fb-submit-btn:hover { background: #512da8; }
+.fb-clear-btn { background: none; border: none; color: #673ab7; font-size: 14px; cursor: pointer; font-family: inherit; padding: 0; }
+.fb-clear-btn:hover { text-decoration: underline; }
+
+/* Thank-you screen */
+.fb-thankyou-card { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 48px 32px; text-align: center; }
+.fb-thankyou-icon { width: 56px; height: 56px; background: #673ab7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; margin: 0 auto 20px; }
+.fb-thankyou-card h2 { font-size: 20px; font-weight: 600; color: #111; margin: 0 0 8px; }
+.fb-thankyou-card p { font-size: 14px; color: #666; margin: 0; }
+
 @media (max-width: 600px) {
   .fb-main { padding: 12px 8px 40px; }
   .fb-form-header-body, .fb-question-card, .fb-add-panel { padding-left: 16px; padding-right: 16px; }
   .fb-add-types { grid-template-columns: repeat(2, 1fr); }
+  .fb-pq { padding: 16px; }
+  .fb-preview-header-body { padding: 16px; }
 }
